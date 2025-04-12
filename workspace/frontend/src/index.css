@@ -1,0 +1,52 @@
+@import "tailwindcss";
+@import "./themes/ocean.css";
+
+@theme {
+  --font-news: "EightBitOperator";
+  --font-datetime: "Novecento";
+
+  --color-level-bg: #323232ff;
+  --color-dialog-bg: #00000077;
+  --color-news-bg: #bb0000ff;
+  --color-news-scrollbar-bg: #ff9900ff;
+  --color-items-bg: #222222aa;
+  --color-placeholder-bg: #000000aa;
+
+  --text-huge: 6rem;
+  --text-xx-large: 3.5rem;
+  --text-x-large: 2.5rem;
+  --text-large: 2rem;
+  --text-normal: 1.5rem;
+  --text-small: 1.2rem;
+  --text-x-small: 1rem;
+
+  --shadow-normal: 0.2rem 0.15rem #00000099;
+  --text-shadow-normal: 0.2rem 0.15rem #00000099;
+  --text-shadow-large: 0.3rem 0.2rem #00000099;
+}
+
+body {
+  @apply text-white;
+  font-family: "SourceHanSansCN-VF";
+
+  background-image: var(--bg-image);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+@font-face {
+  font-family: "SourceHanSansCN-VF";
+  src: url("/fonts/SourceHanSansCN-VF.ttf");
+}
+
+@font-face {
+  font-family: "Novecento";
+  src: url("/fonts/Novecento-Wide-Normal-2.otf");
+}
+
+@font-face {
+  font-family: "EightBitOperator";
+  src: url("/fonts/8bitOperatorPlus8-Regular.ttf");
+}

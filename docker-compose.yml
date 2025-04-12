@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  defi-swap:
+    build: .
+    container_name: defi-swap
+    ports:
+      - "3000:3000"
+      - "8545:8545"
+    volumes:
+      - ./workspace:/usr/app/workspace
+    tty: true
+    stdin_open: true 
