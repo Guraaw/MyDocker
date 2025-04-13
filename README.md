@@ -1,102 +1,133 @@
-# DeFi Swap 应用
+# DeFi-Guralu Swap
 
-这个仓库包含一个基于Docker的DeFi交换应用，包括前端和后端组件。
+A decentralized token swap platform that allows users to exchange ERC-20 tokens directly from their wallet.
 
-## 项目结构
+## Application Preview
+
+![Main Interface](previewMain.png)
+
+## Introduction
+
+![Introduction](intro.png)
+
+## Quick Start
+
+1. Clone this repository
+2. Run `deploy.bat`
+3. Enter your wallet address when prompted
+4. Access the application at http://localhost:3000
+
+## Prerequisites
+
+- Windows 10/11
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/) installed and running
+- [Git](https://git-scm.com/downloads) installed
+- Internet connection
+
+## Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/Guraaw/MyDocker.git
+
+# Navigate to project directory
+cd MyDocker
+
+# Run deployment script
+deploy.bat
+```
+
+## User Guide
+
+### 1. Connect Your Wallet
+
+First, connect your wallet by clicking on the "Wallet Status" button:
+
+![Bind Wallet](BoundWallet.png)
+
+### 2. Exchange Tokens
+
+Access the Exchange Center to swap tokens:
+
+![Exchange Center Overview](exchangeCenter.png)
+
+The Trade Terminal allows you to specify token amounts and execute swaps:
+
+![Trade Terminal Detail](TradeTerminal.png)
+
+### 3. Manage Liquidity
+
+You can add or remove liquidity from pools:
+
+![Liquidity Modification Overview](lpModify.png)
+
+Detailed liquidity management interface:
+
+![Modify Liquidity Detail](ModifyLiquidity.png)
+
+## Configuration
+
+The deployment process will:
+
+1. Prompt you for your Ethereum wallet address
+2. Automatically update transfer scripts with your address
+3. Build and configure Docker container
+4. Install all dependencies
+5. Deploy smart contracts to a local Hardhat network
+6. Start the frontend application
+
+## Project Structure
 
 ```
-.
-├── Dockerfile              # Docker镜像配置
-├── docker-compose.yml      # Docker Compose配置
-├── setup.sh                # 依赖安装脚本
-├── run-all.bat             # 启动所有服务的脚本
-├── run-container.bat       # Windows用户启动助手
-├── workspace/              # 应用代码目录
-│   ├── package.json        # 后端依赖
-│   ├── hardhat.config.js   # Hardhat配置
-│   ├── scripts/            # 部署脚本
-│   ├── contracts/          # 智能合约
-│   └── frontend/           # 前端应用
-│       └── package.json    # 前端依赖
+defi-guralu/
+├── build/                  # Build scripts
+├── workspace/              # Main project files
+│   ├── contracts/          # Smart contracts
+│   ├── frontend/           # React frontend
+│   ├── scripts/            # Deployment scripts
+│   └── test/               # Contract tests
+├── deploy.bat              # Main deployment script
+├── docker-compose.yml      # Docker configuration
+├── Dockerfile              # Container definition
+└── setup.sh                # Dependency installation
 ```
 
-## 前提条件
+## Available Scripts
 
-- [Docker](https://docs.docker.com/get-docker/)
-- [Docker Compose](https://docs.docker.com/compose/install/)（推荐）
+After deployment, you can use:
 
-## 快速开始（Windows用户）
+- `test/add-alpha.bat` - Transfer ALPHA tokens to your wallet
+- `test/add-beta.bat` - Transfer BETA tokens to your wallet
+- `test/add-gura.bat` - Transfer GURA tokens to your wallet
+- `test/run-script.bat` - Transfer Liquidity to current pool
+- `init.bat` - Run the above actions
 
-1. 克隆此仓库:
-   ```
-   git clone https://github.com/您的用户名/defi-swap.git
-   cd defi-swap
-   ```
+## Accessing the Application
 
-2. 运行启动脚本:
-   ```
-   run-container.bat
-   ```
+- **Frontend**: http://localhost:3000
+- **Hardhat Node**: http://localhost:8545
 
-## 手动部署步骤
+## Dependencies
 
-### 1. 使用Docker Compose（推荐）
+All dependencies are automatically installed by the deployment script:
 
-1. 克隆此仓库:
-   ```
-   git clone https://github.com/您的用户名/defi-swap.git
-   cd defi-swap
-   ```
+- Node.js 22.x (installed in Docker)
+- Hardhat
+- React
+- Ethers.js
+- Web3.js
+- Tailwind CSS
+- Vite
 
-2. 构建并启动容器:
-   ```
-   docker-compose up -d
-   ```
+## Troubleshooting
 
-3. 安装依赖:
-   ```
-   docker exec -it defi-swap bash -c "chmod +x /usr/app/setup.sh && /usr/app/setup.sh"
-   ```
+If you encounter any issues:
 
-4. 启动应用:
-   ```
-   run-all.bat
-   ```
+1. Ensure Docker is running
+2. Try stopping the container with `docker-compose down`
+3. Re-run `deploy.bat`
+4. Check logs with `docker logs defi-guralu`
 
-### 2. 使用Docker指令
+## License
 
-1. 构建Docker镜像:
-   ```
-   docker build -t defi-swap-image .
-   ```
-
-2. 运行容器:
-   ```
-   docker run --name=defi-swap -p 3000:3000 -p 8545:8545 -v $(pwd)/workspace:/usr/app/workspace -it defi-swap-image
-   ```
-
-3. 在另一个终端中，安装依赖:
-   ```
-   docker exec -it defi-swap bash -c "chmod +x /usr/app/setup.sh && /usr/app/setup.sh"
-   ```
-
-4. 启动应用:
-   ```
-   run-all.bat
-   ```
-
-## 访问应用
-
-- 前端界面: http://localhost:3000
-- Hardhat区块链节点: http://localhost:8545
-
-## 故障排除
-
-- 如果前端未启动，查看日志:
-  ```
-  docker logs defi-swap
-  ```
-- 访问容器shell:
-  ```
-  docker exec -it defi-swap bash
-  ``` 
+MIT 

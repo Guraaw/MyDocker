@@ -1,5 +1,6 @@
 @echo off
-REM Save as C:\MyDocker\run-frontend.bat
+REM Ref path
 echo Starting frontend...
-docker exec -it defi-swap bash -c "cd workspace/frontend && npm run dev"
+docker exec -it defi-guralu bash -c "cd workspace/frontend && npm run dev"
+echo Frontend started!
 pause

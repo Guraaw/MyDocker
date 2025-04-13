@@ -1,9 +1,9 @@
 version: '3'
 
 services:
-  defi-swap:
+  defi-guralu:
     build: .
-    container_name: defi-swap
+    container_name: defi-guralu
     ports:
       - "3000:3000"
       - "8545:8545"

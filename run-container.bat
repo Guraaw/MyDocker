@@ -1,18 +1,22 @@
 @echo off
-echo === DeFi Swap 启动助手 ===
+echo === Test Deployment ===
 
-echo 1. 构建容器（如果是首次运行）
+echo 1. Building container (for first run)
 docker-compose build
 
-echo 2. 启动容器
+echo 2. Starting container
 docker-compose up -d
 
-echo 3. 安装依赖
-docker exec -it defi-swap bash -c "chmod +x /usr/app/setup.sh && /usr/app/setup.sh"
+echo 3. Copying scripts to container
+docker cp workspace/scripts/transferALPHA.js defi-guralu:/usr/app/workspace/scripts/
+docker cp workspace/scripts/transferBETA.js defi-guralu:/usr/app/workspace/scripts/
+docker cp workspace/scripts/transferGura.js defi-guralu:/usr/app/workspace/scripts/
 
-echo 4. 启动服务
+echo 4. Installing dependencies
+docker exec -it defi-guralu bash -c "chmod +x /usr/app/setup.sh && /usr/app/setup.sh"
+
+echo 5. Starting services
 call run-all.bat
 
-echo === 完成！===
-echo 前端界面: http://localhost:3000
-echo Hardhat节点: http://localhost:8545 
+echo === Complete! ===
+pause
