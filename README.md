@@ -4,11 +4,11 @@ A decentralized token swap platform that allows users to exchange ERC-20 tokens 
 
 ## Application Preview
 
-![Main Interface](previewMain.png)
+![Main Interface](Demo/previewMain.png)
 
 ## Introduction
 
-![Introduction](intro.png)
+![Introduction](Demo/intro.png)
 
 ## Quick Start
 
@@ -43,27 +43,27 @@ deploy.bat
 
 First, connect your wallet by clicking on the "Wallet Status" button:
 
-![Bind Wallet](BoundWallet.png)
+![Bind Wallet](Demo/BoundWallet.png)
 
 ### 2. Exchange Tokens
 
 Access the Exchange Center to swap tokens:
 
-![Exchange Center Overview](exchangeCenter.png)
+![Exchange Center Overview](Demo/exchangeCenter.png)
 
 The Trade Terminal allows you to specify token amounts and execute swaps:
 
-![Trade Terminal Detail](TradeTerminal.png)
+![Trade Terminal Detail](Demo/TradeTerminal.png)
 
 ### 3. Manage Liquidity
 
 You can add or remove liquidity from pools:
 
-![Liquidity Modification Overview](lpModify.png)
+![Liquidity Modification Overview](Demo/lpModify.png)
 
 Detailed liquidity management interface:
 
-![Modify Liquidity Detail](ModifyLiquidity.png)
+![Modify Liquidity Detail](Demo/ModifyLiquidity.png)
 
 ## Configuration
 
